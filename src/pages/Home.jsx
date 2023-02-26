@@ -20,11 +20,11 @@ export default function Home() {
         </div>
 
         <div className="flex gap-5">
-          <div className="border flex items-center px-3 rounded-md">
+          <div className="border border-black flex items-center px-3 rounded-md">
             <input
               type="text"
               placeholder="Enter Money to settle"
-              className="placeholder:text-sm"
+              className="placeholder:text-sm w-full outline-none"
             />
           </div>
           <button className="bg-brandColor font-bold px-5 py-2 text-sm rounded-md text-center">

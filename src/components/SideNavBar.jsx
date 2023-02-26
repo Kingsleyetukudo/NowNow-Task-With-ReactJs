@@ -23,7 +23,7 @@ export default function SideNavBar() {
             </li>
             <li className="flex items-center gap-2 cursor-pointer">
               <i className="material-icons text-gray-300 text-xl">circle</i>
-              Reports
+              <NavLink to="/form">Reports</NavLink>
             </li>
             <li className="flex items-center gap-2 cursor-pointer">
               <i className="material-icons text-gray-300 text-xl">circle</i>

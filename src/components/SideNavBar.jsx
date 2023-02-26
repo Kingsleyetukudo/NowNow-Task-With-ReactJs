@@ -1,0 +1,79 @@
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import Logo from "../assets/NowNow-Logo-1.svg";
+
+export default function SideNavBar() {
+  const [toggleDropDown, setToggleDropDown] = useState(false);
+
+  const handleDropDown1 = () => {
+    setToggleDropDown((dropDown) => !dropDown);
+  };
+  return (
+    <div>
+      <section>
+        <div className="border max-w-275 h-screen bg-white shadow-sidebarShadow flex flex-col gap-5">
+          <div className="flex items-center justify-center p-5 border-b-2">
+            <img src={Logo} alt="" />
+          </div>
+
+          <ul className="px-5 flex flex-col gap-5 font-medium ">
+            <li className="flex items-center gap-2 cursor-pointer">
+              <i className="material-icons text-gray-300 text-xl">circle</i>
+              <NavLink to="/">Dashboard</NavLink>
+            </li>
+            <li className="flex items-center gap-2 cursor-pointer">
+              <i className="material-icons text-gray-300 text-xl">circle</i>
+              Reports
+            </li>
+            <li className="flex items-center gap-2 cursor-pointer">
+              <i className="material-icons text-gray-300 text-xl">circle</i>
+              Transaction History
+            </li>
+            <li onClick={handleDropDown1}>
+              <span className="flex items-center gap-2 cursor-pointer">
+                <i className="material-icons text-gray-300 text-xl">circle</i>
+                Employee Management
+                <i className="material-symbols-outlined text-gray-600 text-xl ml-auto">
+                  chevron_right
+                </i>
+              </span>
+              {toggleDropDown && (
+                <ul className="bg-gray-300 -mx-5 mt-2 px-12 py-2 flex flex-col gap-5">
+                  <li>Manager Employee</li>
+                  <li>Modify Permission</li>
+                </ul>
+              )}
+            </li>
+            <li className="flex items-center gap-2 cursor-pointer">
+              <i className="material-icons text-gray-300 text-xl">circle</i>
+              Payment Outward
+              <i className="material-symbols-outlined text-gray-600 text-xl ml-auto">
+                chevron_right
+              </i>
+            </li>
+            <li className="flex items-center gap-2 cursor-pointer">
+              <i className="material-icons text-gray-300 text-xl">circle</i>
+              Reveive Money
+              <i className="material-symbols-outlined text-gray-600 text-xl ml-auto">
+                chevron_right
+              </i>
+            </li>
+            <li className="flex items-center gap-2 cursor-pointer">
+              <i className="material-icons text-gray-300 text-xl">circle</i>
+              Chat Support
+            </li>
+          </ul>
+
+          <div className="mt-auto border-t-2">
+            <ul className="p-5 font-medium">
+              <li className="flex items-center gap-2 text-brandColor cursor-pointer">
+                <i className="material-icons  text-xl">circle</i>
+                Logout
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

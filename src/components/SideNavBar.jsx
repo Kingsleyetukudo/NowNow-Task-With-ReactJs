@@ -33,16 +33,25 @@ export default function SideNavBar() {
               <span className="flex items-center gap-2 cursor-pointer">
                 <i className="material-icons text-gray-300 text-xl">circle</i>
                 Employee Management
-                <i className="material-symbols-outlined text-gray-600 text-xl ml-auto">
+                <i
+                  className={
+                    toggleDropDown
+                      ? "material-symbols-outlined rotate-90 transition-all duration-500"
+                      : "material-symbols-outlined text-gray-600 text-xl ml-auto transition-all duration-500"
+                  }>
                   chevron_right
                 </i>
               </span>
-              {toggleDropDown && (
-                <ul className="bg-gray-300 -mx-5 mt-2 px-12 py-2 flex flex-col gap-5">
-                  <li>Manager Employee</li>
-                  <li>Modify Permission</li>
-                </ul>
-              )}
+
+              <ul
+                className={
+                  toggleDropDown
+                    ? "h-85 bg-gray-300 -mx-5 mt-2 px-12 py-2 flex flex-col gap-5 transition-all duration-1000 ease-in-out"
+                    : " h-0 transition-all duration-1000 ease-in-out overflow-hidden"
+                }>
+                <li>Manager Employee</li>
+                <li>Modify Permission</li>
+              </ul>
             </li>
             <li className="flex items-center gap-2 cursor-pointer">
               <i className="material-icons text-gray-300 text-xl">circle</i>

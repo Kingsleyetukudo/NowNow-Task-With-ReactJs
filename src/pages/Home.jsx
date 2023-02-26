@@ -1,5 +1,9 @@
 import React from "react";
 import curve from "../assets/CURVE1.png";
+import BarChart from "../components/BarChart";
+import DistributedChart from "../components/DistributedChart";
+import GradientDonutChart from "../components/GradientDonutChart";
+import LineChart from "../components/LineChart";
 
 export default function Home() {
   return (
@@ -97,6 +101,23 @@ export default function Home() {
               <p className="text-sm">16 Dec, 2023</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="md:flex gap-9 mobile:flex mobile:flex-col mobile:mb-3">
+        <div className="md:w-1/2 border rounded-md">
+          <BarChart />
+        </div>
+        <div className="md:w-1/2 border rounded-md">
+          <LineChart />
+        </div>
+      </div>
+      <div className="md:flex gap-9 mobile:flex mobile:flex-col">
+        <div className="md:w-1/2 border rounded-md">
+          <GradientDonutChart />
+        </div>
+        <div className="md:w-1/2 border rounded-md">
+          <DistributedChart />
         </div>
       </div>
     </div>

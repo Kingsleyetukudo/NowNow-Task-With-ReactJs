@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Logo from "../assets/NowNow-Logo-1.svg";
+import Footer from "./Footer";
 import SideNavBar from "./SideNavBar";
 
 export default function NavBar() {
   const [toggleSideBar, setToggleSidebar] = useState(false);
 
-  const handleSideBar = () => {
+  const handleSideBar = (e) => {
     setToggleSidebar((sidebar) => !sidebar);
+    console.log(e);
   };
   return (
     <div className="mobile:grid-cols-1 sidebar:grid-cols-1 grid grid-cols-homeScreen">
@@ -68,15 +70,26 @@ export default function NavBar() {
             </div>
           </nav>
         </header>
-        <main>
-          <Outlet />
-        </main>
+        <div className="h-85vh overflow-auto flex flex-col gap-6">
+          <main>
+            <Outlet />
+          </main>
+
+          <footer>
+            <Footer />
+          </footer>
+        </div>
 
         {toggleSideBar && (
-          <div
-            className="absolute top-0 w-full bg-bgTransparent"
-            onClick={handleSideBar}>
-            <SideNavBar />
+          <div className="absolute top-0 w-full bg-bgTransparent">
+            <span onClick={handleSideBar}>
+              <i className="material-icons absolute right-7 top-5 text-white text-4xl">
+                close
+              </i>
+            </span>
+            <div>
+              <SideNavBar />
+            </div>
           </div>
         )}
       </div>

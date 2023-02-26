@@ -11,13 +11,18 @@ module.exports = {
         90: "90%",
       },
 
+      height: {
+        "85vh": "90vh",
+        85: "85px",
+      },
+
       maxWidth: {
         275: "275px",
       },
 
       colors: {
         brandColor: "#F78B00",
-        bgTransparent: "rgba(142, 144, 142, 0.5)",
+        bgTransparent: "rgba(142, 144, 142, 0.9)",
         boxTransparentBlack: "rgba(167, 158, 154, 0.64)",
         boxTransparent: "rgba(235, 133, 0, 1)",
       },

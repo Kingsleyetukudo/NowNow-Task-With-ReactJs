@@ -1,11 +1,31 @@
 import React, { useRef, useState } from "react";
 
 export default function Form() {
+  const [comtyName, setComtyName] = useState("");
+  const [comtSlug, setComtSlug] = useState("");
+  const [comtDescribe, setComtDescribe] = useState("");
+  const [comtCategory, setComtCategory] = useState("");
+  const [comtyHeadline, setComtyHeadline] = useState("");
+  const [comtyBody, setComtyBody] = useState("");
   const [primaryColor, setPrimaryColor] = useState("#dddddd");
   const [ascentColor, setAscentColor] = useState("#ffffff");
   const [file, setFile] = useState([]);
   const fileInput = useRef(null);
   const fileInput2 = useRef(null);
+
+  const handleForm = (e) => {
+    e.preventDefault();
+    console.log(
+      comtCategory,
+      comtDescribe,
+      comtSlug,
+      comtyHeadline,
+      comtyName,
+      comtyBody,
+      primaryColor,
+      ascentColor
+    );
+  };
 
   const handleUpload = () => {
     fileInput.current.click();
@@ -27,7 +47,7 @@ export default function Form() {
   return (
     <div>
       <div className="w-4/5 sidebar:w-90 mobile:w-full mobile:px-6 m-auto mt-9">
-        <form>
+        <form onSubmit={handleForm}>
           <div className="flex flex-col gap-5">
             <div className="flex justify-between mobile:flex mobile:flex-wrap gap-12 mobile:gap-5">
               <div className="md:w-1/2 w-full">
@@ -35,8 +55,11 @@ export default function Form() {
                 <div className="border border-black flex items-center px-3 py-3 rounded-md">
                   <input
                     type="text"
+                    value={comtyName}
+                    onChange={(e) => setComtyName(e.target.value)}
                     placeholder="Community Name"
-                    className=" placeholder:text-sm w-full outline-none"
+                    required
+                    className=" placeholder:text-sm w-full outline-none "
                   />
                 </div>
               </div>
@@ -46,6 +69,8 @@ export default function Form() {
                 <div className="border border-black flex items-center px-3 py-3 rounded-md">
                   <input
                     type="text"
+                    value={comtSlug}
+                    onChange={(e) => setComtSlug(e.target.value)}
                     placeholder="Community Slug"
                     className=" placeholder:text-sm w-full outline-none"
                   />
@@ -59,6 +84,8 @@ export default function Form() {
                 <div className="border border-black flex items-center px-3 py-3 rounded-md">
                   <input
                     type="text"
+                    value={comtDescribe}
+                    onChange={(e) => setComtDescribe(e.target.value)}
                     placeholder="Describe your Community"
                     className=" placeholder:text-sm w-full outline-none"
                   />
@@ -72,6 +99,8 @@ export default function Form() {
                 <div className="border border-black flex items-center px-3 py-3 rounded-md">
                   <input
                     type="text"
+                    value={comtCategory}
+                    onChange={(e) => setComtCategory(e.target.value)}
                     placeholder="Category"
                     className=" placeholder:text-sm w-full outline-none"
                   />
@@ -111,7 +140,10 @@ export default function Form() {
                   <div className="flex items-center">
                     <p className="mr-4">Headline</p>
                     <div className="border border-black flex items-center px-3 py-3 rounded-md w-full">
-                      <select className="w-full outline-none">
+                      <select
+                        className="w-full outline-none"
+                        value={comtyHeadline}
+                        onChange={(e) => setComtyHeadline(e.target.value)}>
                         <option value="">Select Font</option>
                         <option value="h1">H1</option>
                         <option value="h2">H2</option>
@@ -128,7 +160,10 @@ export default function Form() {
                   <div className="flex items-center">
                     <p className="mr-4">Body</p>
                     <div className="border border-black flex items-center px-3 py-3 rounded-md w-full">
-                      <select className="w-full outline-none">
+                      <select
+                        className="w-full outline-none"
+                        value={comtyBody}
+                        onChange={(e) => setComtyBody(e.target.value)}>
                         <option value="">Select Font</option>
                         <option value="p">P</option>
                         <option value="span">Span</option>

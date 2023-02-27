@@ -6,14 +6,28 @@ import SideNavBar from "./SideNavBar";
 
 export default function NavBar() {
   const [toggleSideBar, setToggleSidebar] = useState(false);
+  const [sideBarToggle, setSideBarToggle] = useState(true);
 
-  const handleSideBar = (e) => {
+  const handleToggle = () => {
+    setSideBarToggle((sidebar) => !sidebar);
+  };
+
+  const handleSideBar = () => {
     setToggleSidebar((sidebar) => !sidebar);
-    console.log(e);
   };
   return (
-    <div className="mobile:grid-cols-1 sidebar:grid-cols-1 grid grid-cols-homeScreen">
-      <div className="sidebar:hidden mobile:hidden">
+    <div
+      className={
+        sideBarToggle
+          ? "mobile:grid-cols-1 sidebar:grid-cols-1 grid grid-cols-homeScreen"
+          : "grid-cols-1"
+      }>
+      <div
+        className={
+          sideBarToggle
+            ? "sidebar:hidden mobile:hidden max-w-275 transition-all duration-1000 ease-in-out"
+            : "hidden w-0 transition-all duration-1000 ease-in-out"
+        }>
         <SideNavBar />
       </div>
       <div>
@@ -22,10 +36,15 @@ export default function NavBar() {
             <div className="md:hidden">
               <img src={Logo} alt="NowNow Logo" />
             </div>
-            <div
-              className="mobile:hidden cursor-pointer"
-              onClick={handleSideBar}>
-              <i className="material-symbols-outlined font-bold text-4xl">
+            <div className="mobile:hidden cursor-pointer">
+              <i
+                className="material-symbols-outlined font-bold text-4xl sidebar:hidden mobile:hidden"
+                onClick={handleToggle}>
+                subject
+              </i>
+              <i
+                className="material-symbols-outlined font-bold text-4xl lg:hidden"
+                onClick={handleSideBar}>
                 menu
               </i>
             </div>
@@ -81,9 +100,9 @@ export default function NavBar() {
         </div>
 
         {toggleSideBar && (
-          <div className="absolute top-0 w-full bg-bgTransparent">
+          <div className="absolute top-0 w-full bg-bgTransparent lg:hidden">
             <span onClick={handleSideBar}>
-              <i className="material-icons absolute right-7 top-5 text-white text-4xl">
+              <i className="material-icons absolute right-7 top-5 text-white text-4xl cursor-pointer">
                 close
               </i>
             </span>

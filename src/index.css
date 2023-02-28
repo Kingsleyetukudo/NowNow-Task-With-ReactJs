@@ -8,7 +8,7 @@ body {
   @apply font-Nunito;
 }
 
-[data-column-id="header"].rdt_TableCol {
+.rdt_TableCol[data-column-id="header"] {
   background-color: black;
   color: white;
   font-weight: 500;

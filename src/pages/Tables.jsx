@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-data-table-component";
-import CheckBox from "@material-ui/core/Checkbox";
+// import CheckBox from "@material-ui/core/Checkbox";
 
 export default function Tables() {
   const columns = [
@@ -94,7 +94,7 @@ export default function Tables() {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-        console.log(data);
+        // console.log(data);
       });
   }, []);
   return (
@@ -105,7 +105,7 @@ export default function Tables() {
         data={data}
         pagination
         selectableRows
-        selectableRowsComponent={CheckBox}
+        // selectableRowsComponent={""}
         selectableRowsComponentProps={selectProps}
       />
     </div>

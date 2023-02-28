@@ -27,7 +27,7 @@ export default function SideNavBar() {
             </li>
             <li className="flex items-center gap-2 cursor-pointer">
               <i className="material-icons text-gray-300 text-xl">circle</i>
-              Transaction History
+              <NavLink to="/table">Transaction History</NavLink>
             </li>
             <li onClick={handleDropDown1}>
               <span className="flex items-center gap-2 cursor-pointer">

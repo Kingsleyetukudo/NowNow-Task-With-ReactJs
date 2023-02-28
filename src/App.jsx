@@ -8,6 +8,7 @@ import {
 import NavBar from "./components/NavBar";
 import Form from "./pages/Form";
 import Home from "./pages/Home";
+import Tables from "./pages/Tables";
 
 function App() {
   const router = createBrowserRouter(
@@ -15,6 +16,7 @@ function App() {
       <Route path="/" element={<NavBar />}>
         <Route index element={<Home />} />
         <Route path="/form" element={<Form />} />
+        <Route path="/table" element={<Tables />} />
       </Route>
     )
   );

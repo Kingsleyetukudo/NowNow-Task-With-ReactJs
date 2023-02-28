@@ -8,6 +8,12 @@ body {
   @apply font-Nunito;
 }
 
+[data-column-id="header"].rdt_TableCol {
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
+
 .style1::-webkit-color-swatch {
   border-radius: 6px;
   border: 1px solid black;
